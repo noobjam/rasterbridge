@@ -1,0 +1,7 @@
+LICENSE
+pyproject.toml
+src/rasterbridge.egg-info/PKG-INFO
+src/rasterbridge.egg-info/SOURCES.txt
+src/rasterbridge.egg-info/dependency_links.txt
+src/rasterbridge.egg-info/requires.txt
+src/rasterbridge.egg-info/top_level.txt

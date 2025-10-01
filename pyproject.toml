@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rasterbridge"
+version = "0.1.0"
+description = "Bridge geospatial TIFF rasters and Parquet dataframes with plotting utilities."
+authors = [{ name = "ElQajjam Mohammed", email = "elqajjam@gmail.com" }]
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+dependencies = [
+    "rasterio",
+    "numpy",
+    "pandas",
+    "pyarrow",
+    "matplotlib",
+    "shapely",
+    "geopandas",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+
