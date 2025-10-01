@@ -1,0 +1,36 @@
+name: Publish Python Package
+
+on:
+  push:
+    branches:
+      - main  # or your default branch
+    tags:
+      - 'v*.*.*'  # triggers on version tags like v0.1.0
+
+jobs:
+  build-and-publish:
+    name: Build and Publish to PyPI
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip setuptools wheel twine
+
+      - name: Build package
+        run: |
+          python setup.py sdist bdist_wheel
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@v1.6.0
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
